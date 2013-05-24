@@ -25,7 +25,7 @@ loadAndExecute("//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js", fun
 	if (daily.length) {
 		daily.text("正在领取今日的登录奖励...");
 		$.ajax({
-			url: "./mission/daily",
+			url: "/mission/daily",
 			success: function(data) {
 				var awards = $(data).find('input[value^="领取"]');
 				if (awards.length) {
@@ -34,9 +34,17 @@ loadAndExecute("//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js", fun
 						url: awards.attr('onclick').match(/(?=\/).+?(?=\')/),
 						success: function(data) {
 							daily.text("成功" + awards.attr("value") + "!");
+						},
+						error: function() {
+							daily.text("网络异常 :(");
 						}
 					});
+				}else{
+					daily.text("无法辩识领奖按钮 :(");
 				}
+			},
+			error: function() {
+				daily.text("请手动领取今日的登录奖励!");
 			}
 		});
 	} else {
