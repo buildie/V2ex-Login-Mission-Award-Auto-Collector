@@ -2,7 +2,7 @@
 // @name			v2ex-login-mission
 // @namespace		http://mutoo.im/
 // @description		auto-receives the login-mission-awards
-// @match			http://*.v2ex.com/
+// @match			*://*.v2ex.com/
 // ==/UserScript==
 
 var load, execute, loadAndExecute;
