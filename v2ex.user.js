@@ -4,6 +4,8 @@
 // @description		auto-receives the login-mission-awards
 // @match			*://*.v2ex.com/
 // @match			*://v2ex.com/
+// @match			*://*.v2ex.com/?tab=*
+// @match			*://v2ex.com/?tab=*
 // ==/UserScript==
 
 var load, execute, loadAndExecute;
